@@ -1,0 +1,122 @@
+.titulos h3{
+    font-size: 1.6pc;
+    font-weight: 500;
+}
+.cotizaciones p{
+    font-size: 1.2pc;
+    letter-spacing: 1px;
+}
+.archivos-section {
+    padding: 30px;
+}
+.mi-archivo-container {
+    border: 2px solid blueviolet;
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 500px;
+}
+.titulo-impresora{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.titulo-archivo{
+    margin: auto;
+}
+.titulo-archivo h1{
+    font-size: 3pc;
+}
+.impresora{
+    width: 40px;
+    height: 40px;
+}
+.impresora img{
+    width: 100%;
+    object-fit: cover;
+}
+.cotizaciones-guardadas-container{
+    width: 100%;
+    display: grid;
+    grid-auto-rows: minmax(40px, auto);
+}
+.titulos{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: lightblue;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.titulos>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cotizaciones-guardadas{
+    height: 300px;
+    overflow-y: scroll;
+}
+.fecha{
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    color: blue;
+    padding: 10px;
+}
+.fecha span{
+    margin-left: 10px;
+}
+.cotizaciones{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+.cotizaciones>div{
+    text-align: center;
+}
+.cotizaciones-guardadas-column{
+    border: 1px solid lightgray;
+}
+.cotizaciones-guardadas-column ul{
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    margin: 10px 0;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cotizaciones-guardadas-column ul li{
+    margin-bottom: 5px;
+}
+.moneda p{
+    text-align: start;
+    padding-left: 10px;
+}
+.accion button{
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+.accion button i{
+    font-size: 20px;
+}
+
+@media screen and (max-width: 768px){
+    .titulos h3{
+        font-size: 1pc;
+        font-weight: 400;
+    }
+    .titulo-archivo h1{
+        font-size: 2.5pc;
+    }
+    .cotizaciones p{
+        font-size: .8pc;
+        letter-spacing: 1px;
+    }
+    .fecha span{
+        font-size: .8pc;
+    }
+}

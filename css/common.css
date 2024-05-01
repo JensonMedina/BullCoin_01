@@ -78,7 +78,7 @@ p{
     max-width: 300px;
     grid-area: 'sidebar';  
     background-color: var(--color-primary);   
-    min-height: max-content;
+    min-height: 100%;
     padding-bottom: 20px; 
 }
 .main{
@@ -171,6 +171,15 @@ footer{
 .item-footer a:hover{
     color: var(--color-primary);
     font-size: 18px;
+}
+/*Migas de Pan*/
+.bread-crumb {
+    display: flex;
+    margin-left: 30px;
+}
+.bread-crumb li {
+    margin-right: 15px;
+    list-style:square;
 }
 /* --MEDIA QUERIES--*/
 @media screen and (max-width:1024px) {
