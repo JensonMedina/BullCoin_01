@@ -6,6 +6,7 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
+/* Definimos variables */
 :root {
   --color-bright-yellow: #ffeb69;
   --color-bright-orange: #ffc091;
@@ -32,27 +33,28 @@
   --color-interactive-warning: #df8700;
   --color-interactive-warning-hover: #c97500;
 }
+/* le damos estilo al header  */
 header {
   width: 100%;
   background-color: var(--color-interactive-control);
 }
 /*_____________________________________MENU__________________________________________________________*/
 
+/* Define variables para controlar la escala de elementos dentro de la navegación */
 .nav {
-  --img1: scale(1);
-  --img2: scale(0);
+  /* definimos variables personalizadas */
+   --img1: scale(1); /*establecemos la variable img1 son un valor de escala 1 */
+   --img2: scale(0); /*establecemos la variable img2 son un valor de escala 0*/
+   /* La propiedad scale() en CSS se utiliza para especificar una transformación de escala para un elemento. Esta transformación altera el tamaño de un elemento, haciéndolo más grande o más pequeño según los valores proporcionados. */
 }
-/* .nav:has(.dropdown:target) {
-  --img1: scale(0);
-  --img2: scale(1);
-  --clip: inset(0 0 0 0);
-} */
+/* Estilos específicos cuando un elemento .nav contiene un .dropdown apuntado por un enlace :target */
 .nav:has(.dropdown:target) {
   --img1: scale(0);
   --img2: scale(1);
   --clip: inset(0 0 0 0);
 }
 
+/* Estilos para el contenedor de navegación */
 .nav__container {
   width: 90%;
   margin: 0 auto;
@@ -93,7 +95,7 @@ header {
 .dropdown {
   display: flex;
   gap: 20px;
-  transition: clip-path 0.5s;
+  transition: clip-path .5;
 }
 
 .dropdown__list {
@@ -215,8 +217,12 @@ p {
   animation: cambioDeFondo 60s infinite linear; /* Duración actualizada a 96s */
 }
 @keyframes cambioDeFondo {
+   /* Definición de los keyframes */
+  /* Cada porcentaje indica un punto en la animación */
+  /* Los estilos definidos se aplican en ese punto durante la animación */
   0%,
   10% {
+    /* Durante los primeros 10% de la animación, se establece un fondo específico y opacidad completa */
     background-image: url("../img/img-background-header.jpg");
     opacity: 1;
   }
@@ -296,7 +302,7 @@ p {
   }
 }
 /*boton menu desplegable*/
-.btn-mnu {
+/* .btn-mnu {
   display: none;
   padding: 3px 10px;
   border: none;
@@ -305,7 +311,7 @@ p {
   font-size: 36px;
   position: absolute;
   right: 20px;
-}
+} */
 
 /*Migas de Pan*/
 .bread-crumb-container {
@@ -351,23 +357,21 @@ footer {
     height: 0;
   }
   /*Menu desplegable*/
-  .btn-mnu {
-    display: block;
-    margin: 10px 10px;
-  }
   .dropdown {
     position: absolute;
     background-color: var(--color-interactive-control);
-    max-width: 300px;
     width: 75%;
+    max-width: 300px;
     left: 0;
     top: 0;
     bottom: 0;
     padding: 1em;
     display: grid;
     align-content: center;
-    gap: 1rem;
+    justify-content: center;
+    gap: 2rem;
     clip-path: var(--clip, inset(0 100% 100% 0));
+    z-index: 10;
   }
   .nav__title {
     display: none;
