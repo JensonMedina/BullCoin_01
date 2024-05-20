@@ -35,3 +35,34 @@ window.addEventListener('resize', function() {
         contador=1;
     }
 });
+/**************************************************/
+/* Background Imagen Dinámico     */
+/**************************************************/
+const imagenes = [                                                     // Arreglo de imágenes que se mostrarán en el fondo
+        'url("img/fondo1.jpg")',
+        'url("img/fondo2.jpg")',
+        'url("img/fondo3.jpg")',
+        'url("img/fondo4.jpg")',
+        'url("img/fondo5.jpg")',
+        'url("img/fondo6.jpg")',
+    ];
+
+
+let indiceActual = 0;                                                    // Índice inicial para el arreglo de imágenes    
+const elementoFondo = document.getElementById("BackgroundDinamico");    // Elemento del DOM cuyo fondo se actualizará
+function actualizarFondo() {
+    elementoFondo.style.opacity = "0";                                    //Establece la opacidad del fondo a 0 (transparente)
+    elementoFondo.style.backgroundImage = imagenes[indiceActual];    // Cambia la imagen de fondo
+    elementoFondo.style.transition = "opacity 4s ease-in-out";
+    elementoFondo.style.opacity = "1";                               // La hacemos totalmente visible
+    elementoFondo.style.transition = "2s ease-in";                  
+    
+    setInterval(()=>{
+        indiceActual++;
+        if (indiceActual >= imagenes.length) {
+            indiceActual = 0;
+        }
+    }, 3000)                        
+}
+// Intervalo para cambiar automáticamente las imágenes
+setInterval(actualizarFondo, 4000);
