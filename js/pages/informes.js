@@ -180,12 +180,13 @@ function dibujarGrafico(cotizaciones, selectedOption) {
       };
     }
     // Añadimos los datos de la cotización actual a los arrays correspondientes
-    data[key].labels.push(item.fechaActualizacion); // Fechas de actualización
+    data[key].labels.push(extraerFechaSinHora(item.fechaActualizacion)); // Fechas de actualización
     data[key].prices.push(item.compra); // Precios de compra
     data[key].salePrices.push(item.venta); // Precios de venta
   });
 
   // creamos los conjuntos de datos (datasets) para el chart basandonos en los datos preparados
+  //object keys nos devuelve las claves de cualquier objeto, en este caso le pasamos "data" y luego con map, hacemos una funcion para cada clave
   const datasets = Object.keys(data).map((key) => {
     const [moneda, casa] = key.split("-"); // dividimos la clave en moneda y casa de cambio con split, y como antes le habiamos puesto un "-" entonces lo podemos hacer facilmente
     return {
@@ -294,11 +295,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //recorremos las cotizaciones que recuperamos del local storage, creamos una fila por cada cotizacion
   cotizaciones.forEach((cotizacion) => {
-    const row = document.createElement("tr");
+    const row = document.createElement("tr"); //tr: tableRow : fila de la tabla
 
     //luego empezamos a crear las celdas que queremos mostrar: moneda - fecha - compra - venta - variacion
     //celda de moneda en donde combinamos moneda- casa
-    const cellMoneda = document.createElement("td");
+    const cellMoneda = document.createElement("td"); //tb: tableData : Celda
     cellMoneda.textContent = cotizacion.moneda + " " + cotizacion.casa;
     row.appendChild(cellMoneda);
 
@@ -323,7 +324,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const cellIcono = document.createElement("td");
     const icono = document.createElement("i");
 
-    actualizarIconoConRegistrosPrevios(cotizaciones, cotizacion, icono);
+    if(!actualizarIconoConRegistrosPrevios(cotizaciones, cotizacion, icono)){
+      actualizarIconoConRegistrosNuevos(cotizaciones, cotizacion, icono);
+    }
     cellIcono.appendChild(icono);
 
     
